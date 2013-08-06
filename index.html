@@ -5,18 +5,19 @@
     <title>Indoor Map Localizer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap-combined.no-icons.min.css">
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awsome/3.0.2/css/font-awsome.css">
-    <link rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fsocial-buttons.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css">
+    <link rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fsocial-buttons.css">    
     <script src="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fjquery.js"></script>
     <script src="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap.js"></script>
-    <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic">
-   <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,300,400,600,700,800">
+    <link href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,300,400,600,700,800" 
+          rel="stylesheet" type="text/css">
     <style type="text/css">
       
       /*Large desktop*/
       @media (min-width: 980px){
       body{
-      padding-top: 100px;
+      padding-top: 80px;
       }
       .linediv-l{
       border-right: 1px white solid;
@@ -39,10 +40,9 @@
       }
       }
 
-     
-      /*All forms factors/
+      /* All form factors */
 
-      /* Main body and headings*/
+      /* Main body and headings */
       body{
       font-family: 'Open Sans', Helvetica, Arial, sans-serif;
       background-color:rgb(244,244,255);/*Background colour of the whole page*/
@@ -76,15 +76,15 @@
       .video, .thermometer, .order, .social, .statistics{
       text-align: center;
       }
-      .statistics{
-      color: white;
+      .statistics h3, .statistics p {
+        color: white;
       }
 
-      /* Marketing Copy and Footer*/
-      .copy{
-      padding-top: 2.5%;
-      padding-bottom: 2.5%;
-      text-align: center;
+      /* Marketing Copy and Footer */
+      .copy {
+        padding-top: 2.5%;
+        padding-bottom: 2.5%;
+        text-align: justify;
       }
       .asset{
       padding: 2.5% 0%;
@@ -99,13 +99,18 @@
       .footer{
       color: #ccccff;/*Words in the footer, the light purple words*/
       }
+      /* http://support.addthis.com/customer/portal/questions/1136093-share-buttons-in-center-position */      
+      div.addthis_toolbox {
+      width:180px; /*This is fixed becaue the buttons for FB or Twiter are usually small enough*/
+      margin: 0 auto;
+ }
     </style>
   </head>
   <body>
 
     <!-- Mobile-friendly navbar adapted from example. -->
     <!-- http://twitter.github.io/bootstrap/examples/starter-template.html -->
-    <div class="navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
 	<div class="container">
 	  <button type="button" class="btn btn-navbar"
@@ -127,10 +132,10 @@
     </div>
 
     <!-- We use row-fluid inside containers to achieve a resizable layout. -->
-    <!-- blogs.endjin.com/2013/04/tips-for-implementing-responsive-designs-using-bottstrap/ -->
+    <!-- blogs.endjin.com/2013/04/tips-for-implementing-responsive-designs-using-bootstrap/ -->
     <!-- http://stackoverflow.com/a/12270322 -->
     <div class="container">
-      <!-- Font and paired font of .heading/.subheading and body from Google Fonts-->
+      <!-- Font and paired font of .heading/.subheading and body from Google Fonts -->
       <!-- www.google.com/fonts/specimen/Ubuntu -->
       <!-- www.google.com/fonts/specimen/Ubuntu#pairings -->
       <div class="row-fluid heading">
@@ -172,39 +177,56 @@
                   <h3>30</h3> <p>days left</p>
                 </div>
               </div>
+            </div>
+          </div>
+          <div class="row-fluid">
+          <div class="span10 offset1">
+            <!-- Bootstrap progress bar -->
+            <!-- http://twitter.github.io/bootstrap/components.html#progress -->
+            <div class="thermometer progress active">
+              <div class="bar bar-info" style="width: 60%;"></div>
+              <!-- <div class="bar color:" style="width: 1%;"></div> -->
+            </div>
+          </div>
+          </div>
+          <div class="row-fluid">
+          <div class="span6 offset3 order">
+            <!-- Standard Bootstrap button. -->
+            <!-- http://twitter.github.io/bootstrap/base-css.html#buttons -->
+            <button class="btn :hover btn-large">Preorder</button>
+          </div>
+          </div>
+          <div class="row-fluid">
+          <div class="span8 offset2 social">
+            <!-- Social buttons are not included in default Bootstrap. -->
+            <!-- See: http://noizwaves.github.io/bootstrap-social-buttons -->
+            <!--button class = "btn btn-twitter"><i class="icon-twitter"></i>
+            <a href="http://www.twitter.com"> </a>| Twitter </button>
+            <button class = "btn btn-facebook"><i class="icon-facebook"></i>
+              <a href="http://www.facebook.com"> </a>| Facebook</button>
+	    <!-- AddThis Button BEGIN -->
+	    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+	      <a class="addthis_button_preferred_1"></a>
+	      <a class="addthis_button_preferred_2"></a>
+	      <a class="addthis_button_compact"></a>
+	      <a class="addthis_counter addthis_bubble_style"></a>
 	    </div>
-	  </div>
-	  <div class="span10 offset1">
-	    <!-- Bootstrap progress bar -->
-	    <!-- http://twitter.github.io/bootstrap/components.html#progress -->
-	    <div class="thermometer progress active">
-	      <div class="bar bar-info" style="width: 60%;"></div>
-	      <!-- <div class="bar color:" style="width: 1%;"></div> -->
-	    </div>
-	  </div>
-	  <div class="span6 offset3 order">
-	    <!-- Standard Bootstrap button. -->
-	    <!-- See http://github.io/bootstrap/base-css.html#buttons -->
-	    <button class="btn :hover btn-large">Preorder</button>
-	  </div>
-	  <div class="span8 offset2 social">
-	    <!-- Social buttons are not included in default Bootstrap -->
-	    <!-- See http://noizawaves.github.io/bootstrap-social-buttons -->
-	    <button class = "btn btn-twitter"><i class="icon-twitter"></i>
-	    <a href="http://www.twitter.com"> </a>| Twitter </button>
-	    <button class = "btn btn-facebook"><i class="icon-facebook"></i> 
-	      <a href="http://www.facebook.com"> </a>| Facebook</button>
-	  </div>
-	</div>
+	    <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+	    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5201598b687f9c63"></script>
+	    <!-- AddThis Button END -->   
+          </div>
+          </div>
+        </div>
+        </div>
       </div>
 
       <!-- Beyond this part the marketing copy begins. -->
-      <!-- https://developer.mozilla.org/en-Us/docs/Web/CSS/text-align -->
+      <!-- https://developer.mozilla.org/en-US/docs/Web/CSS/text-align -->
       <!-- http://twitter.github.io/bootstrap/base-css.html#images -->
       <!-- http://placehold.it -->
       <div class="row-fluid section1">
 	<div class="span5 offset1 asset">
-	  <img class="img-polaroid" src="https://raw.github.com/isaaccasm/bitstarter/master/MapMeadowHall.jpg"><!-- src="http://placehold.it/480x300" -->
+	  <img class="img-polaroid" alt="Placeholder" src="https://raw.github.com/isaaccasm/bitstarter/master/MapMeadowHall.jpg"><!-- src="http://placehold.it/480x300" -->
 	</div>
 	<div class="span5 copy">
 	  <p align="justify">
@@ -220,7 +242,7 @@
           </p>
         </div>
         <div class="span5 asset">
-	  <img class="img-polaroid" src="http://placehold.it/480x300">
+          <img class="img-polaroid"  alt="Placeholder" src="http://placehold.it/480x300">
         </div>
       </div>
 
