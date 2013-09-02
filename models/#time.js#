@@ -1,0 +1,7 @@
+var dt = new date(2013,12,31);
+var dtNow = new date.now();
+
+var remains = dt - dtNow;
+
+remains = remains/(1000*3600*24);
+document.getElementById("myResults").innerHTML = remains.toString()+" days left"; 

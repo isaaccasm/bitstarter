@@ -12,7 +12,7 @@
     <link href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,300,400,600,700,800" 
           rel="stylesheet" type="text/css">
-    <script type="text/javascript">
+    <!--script type="text/javascript">
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-43029600-1']);
@@ -24,7 +24,7 @@
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
       
-    </script>
+    </script-->
     <style type="text/css">
       
       /*Large desktop*/
@@ -64,6 +64,15 @@
       font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
       text-align: center;
       }
+      .contact{
+      font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+      text-align: center;
+      font-size: 11px;
+      padding: 0% 0%;/*The first value is for bottom and upper spacing and the second for left and right ones*/
+      /*border-left: 10px white solid;*//*This line put 10 px in white (the leftmost ones)*/
+      /*margin: 0px 5px 0px 5px;*/
+      
+      }
       p.lead {
       padding-top: 1.5%;
       font-size: 24px;
@@ -100,11 +109,11 @@
         text-align: justify;
       }
       .asset{
-      padding: 2.5% 0%;
+      padding: 3% 0%;
       }
       .footer{
       color: #cccccc;
-      text-align: center;/*Color of he blue words at the footer*/
+      text-align: center;/*Color of the blue words at the footer*/
       }
       .footer{
       font-size: 11px;
@@ -114,10 +123,24 @@
       }
       /* http://support.addthis.com/customer/portal/questions/1136093-share-buttons-in-center-position */      
       div.addthis_toolbox {
-      width:180px; /*This is fixed becaue the buttons for FB or Twiter are usually small enough*/
+      width:180px; /*This is fixed because the buttons for FB or Twiter are usually small enough*/
       margin: 0 auto;
  }
     </style>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-42843113-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!--script type="text/javascript" src="models/time.js"></script-->
   </head>
   <body>
 
@@ -127,17 +150,17 @@
       <div class="navbar-inner">
 	<div class="container">
 	  <button type="button" class="btn btn-navbar"
-	    data-toggle="collapse" data-target=".nav-collapse">
+		  data-toggle="collapse" data-target=".nav-collapse">
 	    <span class="icon-bar"></span>
 	    <span class="icon-bar"></span>
 	    <span class="icon-bar"></span>
 	  </button>
-	  <!-- <a class="brand" href="#">Project</a> -->
+	  <a class="brand" href="#">Start</a>
 	  <div class="nav-collapse collapse">
 	    <ul class="nav">
-	      <li class="active"><a href="#">Home/<a></li>
-	      <li><a href="#about">About Us</a></li>
-	      <li><a href="#contact">Contact</a></li>
+	      <li class="active"><a href="#">Home</a></li>
+	      <!--li><a href="#about">About Us</a></li>
+	      <li><a href="#contact">Contact</a></li-->
 	    </ul>
 	</div><!--/.nav-collapse -->
 	</div>
@@ -163,9 +186,10 @@
 	  <p class="lead">Localize yourself inside a shopping mall with your mobile </p>
 	</div>
       </div>
-      <div class="row-fluid pitch">
-	<div class="span5 offset1 video">
-	 <p align="justify">How many times have you been inside a huge shopping mall, wandering around, trying to localize yourself? Well, the solution is within your reach, with this marvellous application. You just need to download the map of the shop and select your current position and it will automatically identify all the shops within the mall and create the shortest path planning to your desired shop. This will make your shopping experience faster and more fun. So stop getting lost and go to your target shop right away with a total focus on your shoppping with your new application  - 'LocalizeYourself'. Let us find the way for you :)! </p> <!-- img clas="img-polaroid" src="MapMeadowHall.png"> <!--  src="http://placehold.it/480x300" -->
+    <!--/div--><!--End of container, there are several endings along the script -->
+      <div class="row-fluid section2">
+	<div class="span5 offset1 asset">
+	  <p align="justify">How many times have you been inside a huge shopping mall, wandering around, trying to localize yourself? Well, the solution is within your reach, with this marvellous application. You just need to download the map of the shop and select your current position and it will automatically identify all the shops within the mall and create the shortest path planning to your desired shop. This will make your shopping experience faster and more fun. So stop getting lost and go to your target shop right away with a total focus on your shoppping with your new application  - 'LocalizeYourself'. Let us find the way for you :)! </p>
 	</div>
 
 	<!-- We define a new 'actions' div to contain statistics, order, and share buttons. -->
@@ -177,88 +201,106 @@
 		<!-- linediv-l and linediv-r give dividing lines that look different
 		     in horizontal and vertical layouts, illustrating media queries. -->
 		<div class="linediv-l">
-		  <h3>0</h3><p>backers</p>
+		  <h3><%= backers %></h3><p>backers</p>
 		</div>
 	      </div>
 	      <div class="span4">
 	   	<div class="linediv-c">
-		  <h3>$0</h3> <p>of $100,000</p>
+		  <h3>$<%= money %></h3> <p>of 100 bitcoins</p>
 		</div>
 	      </div>
 	      <div class="span4">
                 <div class="linediv-r">
-                  <h3>30</h3> <p>days left</p>
+		  <h3 id="daysLeft"></h3>
+		  <!--script type="text/javascript" src="time.js"></script-->
+		  <script type="text/javascript">
+		    function displayDate(){
+			var dt = new Date(2013,12,31);
+			var remains = dt - Date.now();
+			return Math.ceil(remains/(1000*3600*24));
+		   }
+		   document.getElementById("daysLeft").innerHTML = displayDate();
+		    
+		  </script><p>days left</p>
+                  <!--h3 src="30"></h3> <p>days left</p>-->
                 </div>
+              </div>
+            </div>
+	  </div>
+	  <div class="row-fluid">
+            <div class="span10 offset1">
+              <!-- Bootstrap progress bar -->
+              <!-- http://twitter.github.io/bootstrap/components.html#progress -->
+              <div class="thermometer progress active">
+		<div class="bar bar-info" style="width: <%= percent %>%;"></div>
+		<!-- <div class="bar color:" style="width: 1%;"></div> -->
               </div>
             </div>
           </div>
           <div class="row-fluid">
-          <div class="span10 offset1">
-            <!-- Bootstrap progress bar -->
-            <!-- http://twitter.github.io/bootstrap/components.html#progress -->
-            <div class="thermometer progress active">
-              <div class="bar bar-info" style="width: 60%;"></div>
-              <!-- <div class="bar color:" style="width: 1%;"></div> -->
+	    <div class="span6 offset3 order">
+	      <a class="coinbase-button" data-button-style="custom_large" data-button-text="Preorder" data-code="13b56883764b54e6ab56fef3bcc7229c" href="https://coinbase.com/checkouts/13b56883764b54e6ab56fef3bcc7229c">Preorder</a><script src="https://coinbase.com/assets/button.js" type="text/java"></script>
+              <!-- Standard Bootstrap button. -->
+              <!-- http://twitter.github.io/bootstrap/base-css.html#buttons -->
+              <!-- button class="btn :hover btn-large">Preorder</button -->
             </div>
           </div>
-          </div>
           <div class="row-fluid">
-	    <div class="span6 offset3 order">
-	      <a class="coinbase-button" data-code="928791706ecdc239d61fb8f476e04d46" href="https://coinbase.com/checkouts/928791706ecdc239d61fb8f476e04d46">Preorder with BitCoins</a><script src="https://coinbase.com/assets/button.js" type="text/javascript"></script>
-            <!-- Standard Bootstrap button. -->
-            <!-- http://twitter.github.io/bootstrap/base-css.html#buttons -->
-            <!-- button class="btn :hover btn-large">Preorder</button -->
+            <div class="span8 offset2 social">
+              <!-- Social buttons are not included in default Bootstrap. -->
+              <!-- See: http://noizwaves.github.io/bootstrap-social-buttons -->
+              <!--button class = "btn btn-twitter"><i class="icon-twitter"></i>
+		  <a href="http://www.twitter.com"> </a>| Twitter </button-->
+	      <!--button class = "btn btn-facebook"><i class="icon-facebook"></i>
+		  <a href="http://www.facebook.com"> </a>| Facebook</button-->
+	      <!-- AddThis Button BEGIN -->
+	      <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+		<a class="addthis_button_preferred_1"></a>
+		<a class="addthis_button_preferred_2"></a>
+		<a class="addthis_button_compact"></a>
+		<a class="addthis_counter addthis_bubble_style"></a>
+	      </div>
+	      <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+	      <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5201598b687f9c63"></script>
+	      <!-- AddThis Button END -->   
+            </div>
           </div>
-          </div>
-          <div class="row-fluid">
-          <div class="span8 offset2 social">
-            <!-- Social buttons are not included in default Bootstrap. -->
-            <!-- See: http://noizwaves.github.io/bootstrap-social-buttons -->
-            <!--button class = "btn btn-twitter"><i class="icon-twitter"></i>
-            <a href="http://www.twitter.com"> </a>| Twitter </button>
-            <button class = "btn btn-facebook"><i class="icon-facebook"></i>
-              <a href="http://www.facebook.com"> </a>| Facebook</button>
-	    <!-- AddThis Button BEGIN -->
-	    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-	      <a class="addthis_button_preferred_1"></a>
-	      <a class="addthis_button_preferred_2"></a>
-	      <a class="addthis_button_compact"></a>
-	      <a class="addthis_counter addthis_bubble_style"></a>
-	    </div>
-	    <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-	    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5201598b687f9c63"></script>
-	    <!-- AddThis Button END -->   
-          </div>
-          </div>
-        </div>
         </div>
       </div>
+    <!--/div--><!--This is the end of the container -->
 
-      <!-- Beyond this part the marketing copy begins. -->
-      <!-- https://developer.mozilla.org/en-US/docs/Web/CSS/text-align -->
-      <!-- http://twitter.github.io/bootstrap/base-css.html#images -->
-      <!-- http://placehold.it -->
-      <div class="row-fluid section1">
-	<div class="span5 offset1 asset">
-	  <img class="img-polaroid" alt="Placeholder" src="https://raw.github.com/isaaccasm/bitstarter/master/MapMeadowHall.jpg"><!-- src="http://placehold.it/480x300" -->
-	</div>
-	<div class="span5 copy">
-	  <p align="justify">
-	    This an example of the map os <a href="http://www.meadowhall.co.uk/home.aspx"> Meadowhall </a> in Sheffield (UK). In this example, the user is in the position of the red point, whereas the targeted shop is the yellow point, both are linked with a blue line that specifies how to reah it. <!-- cite>(http://www.meadowhall.co.uk/home.aspx)</cite -->
-	  </p>
-	</div>
+    <!-- Beyond this part the marketing copy begins. -->
+    <!-- https://developer.mozilla.org/en-US/docs/Web/CSS/text-align -->
+    <!-- http://twitter.github.io/bootstrap/base-css.html#images -->
+    <!-- http://placehold.it -->
+    <!--The next section is for pictures, use row-fluid section and then the number of the section in increasing number
+	so that, it starts with section1 and then should section2 and so on...-->
+    <div class="row-fluid section1">
+      <div class="span5 offset1 asset">
+	<img class="img-polaroid" alt="Placeholder" src="https://raw.github.com/isaaccasm/bitstarter/master/MapMeadowHall.jpg"><!-- src="http://placehold.it/480x300" -->
       </div>
-      
-      <div class="row-fluid section2">
-        <div class="span5 offset1 copy copy-right">
-	  <p>
-            Lorem ipsum...
-          </p>
-        </div>
+      <div class="span5 copy">
+	<p align="justify">
+	  This an example of the map of <a href="http://www.meadowhall.co.uk/home.aspx"> Meadowhall </a> in Sheffield (UK). In this example, the user is in the position of the red point, whereas the targeted shop is the yellow point, both are linked with a blue line that specifies how to reah it. <!-- cite>(http://www.meadowhall.co.uk/home.aspx)</cite -->
+	</p>
+      </div>
+    </div>
+    
+    <!--div class="row-fluid section2">
+        <!--div class="span5 offset1 copy copy-right">
+	    <p>
+              Lorem ipsum...
+            </p>
+</div>
         <div class="span5 asset">
           <img class="img-polaroid"  alt="Placeholder" src="http://placehold.it/480x300">
-        </div>
-      </div>
+        </div-->
+	<div class="row-fluid contact">
+	  <div class="span12">
+	    <p align="center">If you have any doubts that are not solved in the FAQ section you can always contact us in the following e-mail: isaac(dot)casm(add)GMAIL(dot)COM</p>
+	  </div>
+	</div>
+      <!--/div>
 
       <!-- For the FAQ, we introduce a little of JS, using the accordion -->
       <!-- This brings in jquery.js and bootstrap.js as dependencies -->
@@ -268,7 +310,7 @@
 	<div class="span10 offset1">
 	 <h3> FAQ </h3>
 	 <div class="accordion" id="accordion2">
-	   <div class="accordion-group">
+	   <!--div class="accordion-group">
 	     <div class="accordion-heading">
 	       <a class="accordion-toggle" data-toggle="collapse" 
 		  data-parent="#accordion2" href="#collapseOne">
@@ -280,7 +322,7 @@
 		 Frequently Asked Questions.
 	       </div>
 	     </div>
-	   </div>
+	   </div-->
 	   <div class="accordion-group">
 	     <div class="accordion-heading">
 	       <a class="accordion-toggle" data-toggle="collapse"
@@ -297,7 +339,7 @@
 	 </div>
 	</div>
       </div>
-
+</div><!--End of container -->
       <!-- Not crucial, but we put this under a CC By-SA 3.0 license. -->
       <!-- http://creativecommons.org/licenses/ -->
 	
@@ -305,10 +347,20 @@
 	<div class="span12">
 	  <p>This work is licensed under
 	    the <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC By-SA 3.0
-	    </a>, without all the cruft that would otherwise be put 
-	    at the bottom of the page. </p>
+	    </a>. </p>
 	</div>
       </div>
-    </div>
+<!--/div--><!--End of container -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42843113-1', 'bitstart.net');
+  ga('send', 'pageview');
+
+</script>
   </body>
 </html>
